@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invitación | Nombre del festejado</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Música global (permanece al cambiar vistas) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="huapango.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Pantalla de bienvenida -->
+  <section id="welcome" class="screen">
+    <div class="welcome-content">
+      <h3>Mis XV Años</h3>
+      <h1 id="guestName">Sergio Emanuel</h1>
+      <p>Tu presencia hará este día especial</p>
+      <img src="foto.jpeg" alt="Foto de bienvenida" class="welcome-img" />
+      <button id="enterBtn" class="primary-btn">Entrar</button>
+    </div>
+  </section>
+
+  <!-- Página principal (inicialmente oculta) -->
+  <main id="mainView" class="screen hidden">
+    <section class="invitation">
+      <img src="invi.jpeg" alt="Invitación" class="invite-img fade-in" />
+    </section>
+
+    <!-- Cuenta regresiva -->
+    <section class="countdown">
+      <h2>Faltan</h2>
+      <div class="time-grid">
+        <div class="time-card"><span id="days">00</span><p>Días</p></div>
+        <div class="time-card"><span id="hours">00</span><p>Horas</p></div>
+        <div class="time-card"><span id="minutes">00</span><p>Minutos</p></div>
+        <div class="time-card"><span id="seconds">00</span><p>Segundos</p></div>
+      </div>
+    </section>
+
+    <!-- Botones -->
+    <section class="actions">
+      <button id="rsvpBtn" class="primary-btn">Confirmar Asistencia</button>
+      <a class="link-btn" href="https://maps.google.com" target="_blank" rel="noopener">📍 Ver Ubicación</a>
+    </section>
+  </main>
+
+  <!-- Modal de confirmación (OCULTO por defecto) -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="close" aria-label="Cerrar">×</button>
+      <h2 id="modalTitle">Confirmar asistencia</h2>
+      <input id="nameInput" type="text" placeholder="Nombre completo" />
+      <div class="radio-group">
+        <label><input type="radio" name="attend" value="si" /> Sí asistiré</label>
+        <label><input type="radio" name="attend" value="no" /> No podré asistir</label>
+      </div>
+      <div id="guestsWrap" class="hidden">
+        <label for="guestsInput"><strong>Número de personas</strong></label>
+        <input id="guestsInput" type="number" min="1" value="1" />
+      </div>
+      <button id="sendBtn" class="primary-btn">Enviar Confirmación</button>
+    </div>
+  </div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Inicializa EmailJS: reemplaza con tu publicKey
+    emailjs.init("anBc2zoGxR5ueEGJX");
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

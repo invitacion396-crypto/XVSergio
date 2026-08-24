@@ -1,0 +1,288 @@
+/* =============================
+   Paleta, reset y configuración
+   ============================= */
+
+:root{
+  --paper-1: #f3e9dc;
+  --paper-2: #e6d6bf;
+  --maroon:  #7a2b2b;
+  --brown:   #5a3a2a;
+  --gold:    #c99b4b;
+  --text-dark:#2b1f18;
+  --glass: rgba(255,255,255,0.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(180deg, var(--paper-1), var(--paper-2));
+  color:var(--text-dark);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* utilidades */
+.hidden{display:none !important}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px}
+
+/* =============================
+   BIENVENIDA
+   ============================= */
+
+#welcome{
+  position:fixed;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+  z-index:1000;
+  transition:opacity .6s;
+}
+
+.welcome-content{
+  text-align:center;
+  animation:appear 1.2s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.88));
+  padding:28px;
+  border-radius:16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  border: 1px solid rgba(90,58,42,0.08);
+  max-width:760px;
+}
+
+.welcome-content h3{
+  color:var(--maroon);
+  font-family:'Cinzel',serif;
+  letter-spacing:4px;
+  margin-bottom:8px;
+}
+
+.welcome-content h1{
+  font-family:'Cinzel',serif;
+  font-size:40px;
+  line-height:1;
+  margin-bottom:12px;
+  color:var(--brown);
+}
+
+.welcome-content p{
+  color:#4b3a33;
+  margin-bottom:18px;
+  font-size:18px;
+}
+
+.welcome-img{
+  display:block;
+  margin:12px auto;
+  border-radius:10px;
+  width:260px;
+  height:auto;
+  box-shadow: 0 8px 30px rgba(90,58,42,0.18);
+  border:6px solid rgba(122,43,43,0.06);
+}
+
+.primary-btn{
+  background: linear-gradient(180deg,var(--maroon), #5b1f1f);
+  color:var(--paper-1);
+  border:none;
+  padding:12px 28px;
+  border-radius:999px;
+  font-size:16px;
+  cursor:pointer;
+  transition:transform .18s,box-shadow .18s;
+  box-shadow: 0 6px 18px rgba(122,43,43,0.18);
+}
+
+.primary-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(122,43,43,0.22);
+}
+
+/* =============================
+   PÁGINA PRINCIPAL / INVITACIÓN
+   ============================= */
+
+#mainView{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:30px;
+  padding-top:40px;
+  padding-bottom:60px;
+}
+
+.invitation{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+.invite-img{
+  width:80%;
+  max-width:500px;
+  border-radius:14px;
+  box-shadow:0 14px 50px rgba(90,58,42,0.12);
+  border:8px solid rgba(122,43,43,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  transform-origin:center center;
+}
+
+/* efecto fade-in para la invitación */
+.fade-in{opacity:0;animation:fadeIn .9s ease forwards .2s}
+@keyframes fadeIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+
+/* =============================
+   CUENTA REGRESIVA (AMPLIADA Y RESPONSIVE)
+   ============================= */
+
+/* contenedor de tarjetas */
+.countdown{text-align:center;padding:10px 20px}
+.countdown h2{color:var(--maroon);font-family:'Cinzel',serif;font-size:34px;margin-bottom:18px}
+
+/* grid flexible para las tarjetas */
+.time-grid{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+  padding:8px 12px;
+}
+
+/* tarjetas responsivas: ancho fluido con límites */
+.time-card{
+  flex: 0 1 clamp(100px, 18vw, 160px);
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: clamp(14px, 2.2vw, 22px);
+  border: 1px solid rgba(90,58,42,0.06);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+/* número grande y legible, escala con pantalla */
+.time-card span{
+  display:block;
+  font-size: clamp(28px, 6vw, 44px);
+  color: var(--gold);
+  font-weight:700;
+  line-height:1;
+}
+
+/* etiqueta (Días, Horas...) */
+.time-card p{
+  margin-top:8px;
+  font-size: clamp(12px, 2.2vw, 16px);
+  color:#3b2b24;
+}
+
+/* =============================
+   BOTONES Y ACCIONES
+   ============================= */
+
+.actions{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.link-btn{
+  display:inline-block;
+  background:transparent;
+  border:2px solid rgba(90,58,42,0.08);
+  color:var(--brown);
+  padding:12px 20px;
+  border-radius:999px;
+  text-decoration:none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+}
+
+.link-btn:hover{box-shadow:0 8px 20px rgba(90,58,42,0.08)}
+
+/* =============================
+   MODAL
+   ============================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+
+.modal-box{
+  width:92%;
+  max-width:440px;
+  background:linear-gradient(180deg,#fff8f2,#fff6ee);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.18);
+  position:relative;
+  border:1px solid rgba(122,43,43,0.06);
+}
+
+.modal-box h2{text-align:center;color:var(--maroon);margin-bottom:14px}
+
+.modal-box input[type="text"],
+.modal-box input[type="number"]{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid rgba(90,58,42,0.06);
+  margin-bottom:12px;
+  background:#fff;
+  color:var(--text-dark);
+}
+
+.radio-group{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;color:var(--text-dark)}
+
+.close{
+  position:absolute;
+  right:14px;
+  top:10px;
+  background:transparent;
+  border:none;
+  color:var(--brown);
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* =============================
+   ANIMACIONES
+   ============================= */
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:none}
+}
+
+/* =============================
+   AJUSTES RESPONSIVE FINALES
+   ============================= */
+
+@media (max-width:768px){
+  .welcome-content h1{font-size:30px}
+  .welcome-img{width:200px}
+  .invite-img{width:90%;max-width:360px}
+  .time-card{padding:12px}
+  .time-card span{font-size: clamp(24px, 8vw, 34px)}
+  .time-card p{font-size:12px}
+  .countdown h2{font-size: clamp(22px, 5vw, 30px)}
+}
+
+@media (max-width:420px){
+  .time-grid{gap:12px}
+  .time-card{padding:10px}
+  .time-card span{font-size: clamp(20px, 9vw, 30px)}
+  .welcome-content{padding:18px}
+  .primary-btn{padding:10px 20px;font-size:15px}
+}
