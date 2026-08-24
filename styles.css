@@ -302,3 +302,18 @@ body{
   .welcome-content{padding:18px}
   .primary-btn{padding:10px 20px;font-size:15px}
 }
+
+/* Forzar que en pantallas pequeñas las imágenes estén en columna */
+@media (max-width:768px){
+  .invitation {
+    flex-direction: column;   /* 👈 apiladas */
+    align-items: center;      /* 👈 centradas */
+    gap: 20px;                /* 👈 espacio entre ellas */
+  }
+
+  .invite-img {
+    width: 90%;               /* 👈 más angostas en móvil */
+    max-width: 360px;
+  }
+}
+
