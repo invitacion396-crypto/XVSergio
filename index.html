@@ -21,34 +21,37 @@
       <h3>Mis XV Años</h3>
       <h1 id="guestName">Sergio Emanuel</h1>
       <p>Tu presencia hará este día especial</p>
-      <img src="foto.jpeg" alt="Foto de bienvenida" class="welcome-img" />
+      <!-- Foto de bienvenida eliminada -->
       <button id="enterBtn" class="primary-btn">Entrar</button>
     </div>
   </section>
 
   <!-- Página principal (inicialmente oculta) -->
-  <main id="mainView" class="screen hidden">
-    <section class="invitation">
-      <img src="invi.jpeg" alt="Invitación" class="invite-img fade-in" />
-    </section>
+<main id="mainView" class="screen hidden">
+  <section class="invitation">
+    <!-- Primero la invitación -->
+    <img src="invi.jpeg" alt="Invitación" class="invite-img fade-in" />
+    <!-- Debajo la foto -->
+    <img src="foto.jpeg" alt="Foto adicional" class="invite-img fade-in" />
+  </section>
 
-    <!-- Cuenta regresiva -->
-    <section class="countdown">
-      <h2>Faltan</h2>
-      <div class="time-grid">
-        <div class="time-card"><span id="days">00</span><p>Días</p></div>
-        <div class="time-card"><span id="hours">00</span><p>Horas</p></div>
-        <div class="time-card"><span id="minutes">00</span><p>Minutos</p></div>
-        <div class="time-card"><span id="seconds">00</span><p>Segundos</p></div>
-      </div>
-    </section>
+  <!-- Cuenta regresiva -->
+  <section class="countdown">
+    <h2>Faltan</h2>
+    <div class="time-grid">
+      <div class="time-card"><span id="days">00</span><p>Días</p></div>
+      <div class="time-card"><span id="hours">00</span><p>Horas</p></div>
+      <div class="time-card"><span id="minutes">00</span><p>Minutos</p></div>
+      <div class="time-card"><span id="seconds">00</span><p>Segundos</p></div>
+    </div>
+  </section>
 
-    <!-- Botones -->
-    <section class="actions">
-      <button id="rsvpBtn" class="primary-btn">Confirmar Asistencia</button>
-      <a class="link-btn" href="https://maps.google.com" target="_blank" rel="noopener">📍 Ver Ubicación</a>
-    </section>
-  </main>
+  <!-- Botones -->
+  <section class="actions">
+    <button id="rsvpBtn" class="primary-btn">Confirmar Asistencia</button>
+    <a class="link-btn" href="https://maps.google.com" target="_blank" rel="noopener">📍 Ver Ubicación</a>
+  </section>
+</main>
 
   <!-- Modal de confirmación (OCULTO por defecto) -->
   <div id="modal" class="modal hidden">

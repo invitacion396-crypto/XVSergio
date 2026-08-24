@@ -113,7 +113,9 @@ body{
 .invitation{
   width:100%;
   display:flex;
-  justify-content:center;
+  flex-direction: column; /* 👈 esto las pone una debajo de la otra */
+  align-items: center;    /* 👈 centradas */
+  gap: 20px;              /* 👈 espacio entre ellas */
   padding:20px;
 }
 
